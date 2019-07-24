@@ -7,10 +7,11 @@ body {
     height: 100vh;
     margin: 0px;
     display: grid;
-    grid-template-rows: 120px 1fr 60px;
-    grid-template-columns: 1fr;
+    grid-template-rows: 120px 60px 1fr 60px;
+    grid-template-columns: 1fr;    
     grid-template-areas: 
         "cabecalho"
+        "navegacao"
         "principal"
         "rodape";
 }
@@ -42,7 +43,7 @@ body {
 
 .principal {
     grid-area: principal;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 240px);
     background-color: #f0f0f0;
     padding: 20px;
 }
@@ -137,6 +138,9 @@ body {
 .modulo.roxo-escuro { border: 2px solid #4A148C; }
 .modulo.roxo-escuro > h3 { background-color: #4A148C; }
 
+.modulo.laranja-escuro { border: 2px solid #E65527; }
+.modulo.laranja-escuro > h3 { background-color: #E65527; }
+
 p.divisao {
     margin-bottom: 0px;
     font-weight: bold;
@@ -144,4 +148,34 @@ p.divisao {
 
 hr {
     margin-top: 0px;
+}
+
+.navegacao {
+    grid-area: navegacao;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #555;
+}
+
+.navegacao > a {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 300;
+    font-size: 1.3rem;
+    background-color: #2196f3;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.navegacao > a.verde { background-color: #4CAF50; }
+.navegacao > a.vermelho { background-color: #F44336; }
+
+span.usuario {
+    flex-grow: 1;
+    justify-self: flex-start;
+    color: #EEE;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    font-weight: 300;
 }

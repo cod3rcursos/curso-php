@@ -1,0 +1,42 @@
+body.login {
+    grid-template-rows: 120px 1fr 60px;
+    grid-template-areas: "cabecalho" "principal" "rodape";
+}
+
+body.login .principal {
+    height: calc(100vh - 180px);
+}
+
+h3 {
+    font-size: 2.1rem;
+    margin: 20px;
+}
+
+form > div {
+    padding-bottom: 15px;
+}
+
+label, input, button {
+    font-size: 1.5rem;
+}
+
+button {
+    color: #FFF;
+    background-color: #228b22;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.erros > p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #FFF;
+    background-color: #ff4500;
+    padding: 10px 25px;
+    margin-top: 0px;
+}
