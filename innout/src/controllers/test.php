@@ -1,0 +1,3 @@
+<?php
+// Controller temporário!!!
+
