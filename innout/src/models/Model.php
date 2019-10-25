@@ -5,15 +5,23 @@ class Model {
     protected static $columns = [];
     protected $values = [];
 
-    function __construct($arr) {
-        $this->loadFromArray($arr);
+    function __construct($arr, $sanitize = true) {
+        $this->loadFromArray($arr, $sanitize);
     }
 
-    public function loadFromArray($arr) {
+    public function loadFromArray($arr, $sanitize = true) {
         if($arr) {
+            // $conn = Database::getConnection();
             foreach($arr as $key => $value) {
-                $this->$key = $value;
+                $cleanValue = $value;
+                if($sanitize && isset($cleanValue)) {
+                    $cleanValue = strip_tags(trim($cleanValue));
+                    $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES);
+                    // $cleanValue = mysqli_real_escape_string($conn, $cleanValue);
+                }
+                $this->$key = $cleanValue;
             }
+            // $conn->close();
         }
     }
 
@@ -23,6 +31,10 @@ class Model {
 
     public function __set($key, $value) {
         $this->values[$key] = $value;
+    }
+
+    public function getValues() {
+        return $this->values;
     }
 
     public static function getOne($filters = [], $columns = '*') {
@@ -73,6 +85,21 @@ class Model {
         }
         $sql[strlen($sql) - 1] = ' ';
         $sql .= "WHERE id = {$this->id}";
+        Database::executeSQL($sql);
+    }
+
+    public static function getCount($filters = []) {
+        $result = static::getResultSetFromSelect(
+            $filters, 'count(*) as count');
+        return $result->fetch_assoc()['count'];
+    }
+
+    public function delete() {
+        static::deleteById($this->id);
+    }
+
+    public static function deleteById($id) {
+        $sql = "DELETE FROM " . static::$tableName . " WHERE id = {$id}";
         Database::executeSQL($sql);
     }
 
