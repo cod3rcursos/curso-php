@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/login.css">
     <title>In N' Out</title>
 </head>
+
 <body>
     <form class="form-login" action="#" method="post">
         <div class="login-card card">
@@ -24,19 +26,14 @@
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email"
-                        class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
-                        value="<?= $email ?>"
-                        placeholder="Informe o e-mail" autofocus>
+                    <input type="email" id="email" name="email" class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" value="<?= isset($email) ? $email : '' ?>" placeholder="Informe o e-mail" autofocus>
                     <div class="invalid-feedback">
                         <?= $errors['email'] ?>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" name="password"
-                        class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
-                        placeholder="Informe a senha">
+                    <input type="password" id="password" name="password" class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>" placeholder="Informe a senha">
                     <div class="invalid-feedback">
                         <?= $errors['password'] ?>
                     </div>
@@ -48,4 +45,5 @@
         </div>
     </form>
 </body>
+
 </html>
