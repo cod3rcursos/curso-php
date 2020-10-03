@@ -12,13 +12,13 @@ if (count($_POST) === 0 && isset($_GET['update'])) {
 } elseif (count($_POST) > 0) {
     try {
         $dbUser = new User($_POST);
-        print_r($dbUser);
         if ($dbUser->id) {
             $dbUser->update();
             addSuccessMsg('Usuário alterado com sucesso!');
             header('Location: users.php');
             exit();
         } else {
+            $dbUser->id = null;
             $dbUser->insert();
             addSuccessMsg('Usuário cadastrado com sucesso!');
         }
