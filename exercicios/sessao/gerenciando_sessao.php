@@ -2,7 +2,10 @@
 
 <?php
 // session_id('bf1ttq6eujqi7i2fn4rbtujgi6');
-session_start();
+
+if(!isset($_SESSION))     { 
+        session_start(); 
+} 
 echo session_id();
 
 $contador = &$_SESSION['contador'];
