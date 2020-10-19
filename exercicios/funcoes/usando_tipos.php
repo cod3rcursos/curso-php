@@ -1,6 +1,8 @@
 <div class="titulo">Usando Tipos</div>
 
 <?php
+error_reporting(E_ERROR);
+
 function somar1($a, $b) {
     echo "<span>Somando $a + $b = </span>";
     return $a + $b;

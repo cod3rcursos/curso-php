@@ -35,4 +35,8 @@ print_r($dados[2]);
 unset($dados[1]);
 echo '<br>';
 print_r($dados);
-var_dump($dados[1000]);
+if(isset($dados[1000])) {
+    var_dump($dados[1000]);
+} else {
+    echo "<br/> Index inexistente";
+}
