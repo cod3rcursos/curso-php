@@ -8,8 +8,8 @@ $_SESSION['email'] = 'gabrielfilho_alterado@emailaz.com.br';
 ?>
 
 <p>
-    <b>Nome: </b> <?= $_SESSION['nome'] ?><br>
-    <b>Email: </b> <?= $_SESSION['email'] ?>
+    <b>Nome: </b> <?= isset($_SESSION['nome'])? $_SESSION['nome']: "" ?><br>
+    <b>Email: </b> <?= isset($_SESSION['email'])? $_SESSION['email']: "" ?>
 </p>
 
 
