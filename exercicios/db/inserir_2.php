@@ -68,7 +68,9 @@ if(count($_POST) > 0) {
 }
 ?>
 
-<?php foreach($erros as $erro): ?>
+<?php 
+$erros = isset($erros) ? $erros : [];
+foreach($erros as $erro): ?>
     <!-- <div class="alert alert-danger" role="alert"> -->
         <?= "" // $erro ?>
     <!-- </div> -->
@@ -81,9 +83,9 @@ if(count($_POST) > 0) {
             <input type="text" 
                 class="form-control <?= $erros['nome'] ? 'is-invalid' : ''?>"
                 id="nome" name="nome" placeholder="Nome"
-                value="<?= $dados['nome'] ?>">
+                value="<?= isset($dados['nome']) ? $dados['nome'] : '' ?>">
             <div class="invalid-feedback">
-                <?= $erros['nome'] ?>
+                <?= $erros['nome'] ?: '' ?>
             </div>
         </div>
         <div class="form-group col-md-4">
@@ -92,7 +94,7 @@ if(count($_POST) > 0) {
                 class="form-control <?= $erros['nascimento'] ? 'is-invalid' : ''?>"
                 id="nascimento" name="nascimento"
                 placeholder="Nascimento"
-                value="<?= $dados['nascimento'] ?>">
+                value="<?= isset($dados['nascimento']) ? $dados['nascimento'] : '' ?>">
             <div class="invalid-feedback">
                 <?= $erros['nascimento'] ?>
             </div>
@@ -104,7 +106,7 @@ if(count($_POST) > 0) {
             <input type="text"
                 class="form-control <?= $erros['email'] ? 'is-invalid' : ''?>"
                 id="email" name="email" placeholder="E-mail"
-                value="<?= $dados['email'] ?>">
+                value="<?= isset($dados['email']) ? $dados['email'] : '' ?>">
             <div class="invalid-feedback">
                 <?= $erros['email'] ?>
             </div>
@@ -114,7 +116,7 @@ if(count($_POST) > 0) {
             <input type="text"
                 class="form-control <?= $erros['site'] ? 'is-invalid' : ''?>"
                 id="site" name="site" placeholder="Site"
-                value="<?= $dados['site'] ?>">
+                value="<?= isset($dados['site']) ? $dados['site'] : '' ?>">
             <div class="invalid-feedback">
                 <?= $erros['site'] ?>
             </div>
@@ -127,7 +129,7 @@ if(count($_POST) > 0) {
                 class="form-control <?= $erros['filhos'] ? 'is-invalid' : ''?>"
                 id="filhos" name="filhos"
                 placeholder="Qtde de Filhos"
-                value="<?= $dados['filhos'] ?>">
+                value="<?= isset($dados['filhos']) ? $dados['filhos'] : '' ?>">
             <div class="invalid-feedback">
                 <?= $erros['filhos'] ?>
             </div>
@@ -138,7 +140,7 @@ if(count($_POST) > 0) {
                 class="form-control <?= $erros['salario'] ? 'is-invalid' : ''?>"
                 id="salario" name="salario"
                 placeholder="Salário"
-                value="<?= $dados['salario'] ?>">
+                value="<?= isset($dados['salario']) ? $dados['salario'] : '' ?>">
             <div class="invalid-feedback">
                 <?= $erros['salario'] ?>
             </div>
