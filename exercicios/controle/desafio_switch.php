@@ -25,33 +25,34 @@ const FATOR_METRO_KM = 1000;
 const FATOR_CEL_FAH = 1.8;
 
 $param = $_POST['param'] ?? 0;
-switch ($_POST['conversao']) {
-    case 'km-milha':
-        $distancia = $param * FATOR_KM_MILHA;
-        $mensagem = "$param Km(s) = $distancia Milha(s)";
-        break;
-    case 'milha-km':
-        $distancia = $param / FATOR_KM_MILHA;
-        $mensagem = "$param Milha(s) = $distancia Km(s)";
-        break;
-    case 'metro-km':
-        $distancia = $param / FATOR_METRO_KM;
-        $mensagem = "$param Metro(s) = $distancia Km(s)";
-        break;
-    case 'km-metro':
-        $distancia = $param * FATOR_METRO_KM;
-        $mensagem = "$param Km(s) = $distancia Metro(s)";
-        break;
-    case 'cel-fah':
-        $conversao = $param * FATOR_CEL_FAH + 32;
-        $mensagem = "{$param}° Celsius = {$conversao}° Fahrenheit";
-        break;
-    case 'fah-cel':
-        $conversao = ($param - 32) / FATOR_CEL_FAH;
-        $mensagem = "{$param}° Fahrenheit = {$conversao}° Celsius";
-        break;
-    default:
-        $mensagem = "Nenhum valor calculado!";
+if(isset($_POST['conversao'])) {
+    switch ($_POST['conversao']) {
+        case 'km-milha':
+            $distancia = $param * FATOR_KM_MILHA;
+            $mensagem = "$param Km(s) = $distancia Milha(s)";
+            break;
+        case 'milha-km':
+            $distancia = $param / FATOR_KM_MILHA;
+            $mensagem = "$param Milha(s) = $distancia Km(s)";
+            break;
+        case 'metro-km':
+            $distancia = $param / FATOR_METRO_KM;
+            $mensagem = "$param Metro(s) = $distancia Km(s)";
+            break;
+        case 'km-metro':
+            $distancia = $param * FATOR_METRO_KM;
+            $mensagem = "$param Km(s) = $distancia Metro(s)";
+            break;
+        case 'cel-fah':
+            $conversao = $param * FATOR_CEL_FAH + 32;
+            $mensagem = "{$param}° Celsius = {$conversao}° Fahrenheit";
+            break;
+        case 'fah-cel':
+            $conversao = ($param - 32) / FATOR_CEL_FAH;
+            $mensagem = "{$param}° Fahrenheit = {$conversao}° Celsius";
+            break;
+        default:
+            $mensagem = "Nenhum valor calculado!";
+    }
+    echo "<p>$mensagem</p>";
 }
-
-echo "<p>$mensagem</p>";
