@@ -1,20 +1,24 @@
 <div class="titulo">Download</div>
 
 <?php 
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+} 
 
 $arquivos = $_SESSION['arquivos'] ?? [];
 
-$pastaUpload = __DIR__ . '/../files/';
-$nomeArquivo = $_FILES['arquivo']['name'];
-$arquivo = $pastaUpload . $nomeArquivo;
-$tmp = $_FILES['arquivo']['tmp_name'];
-if (move_uploaded_file($tmp, $arquivo)) {
-    echo "<br>Arquivo válido e enviado com sucesso.";
-    $arquivos[] = $nomeArquivo;
-    $_SESSION['arquivos'] = $arquivos;
-} else {
-    echo "<br>Erro no upload de arquivo!";
+if(isset($_FILES['arquivo'])) {
+    $pastaUpload = __DIR__ . '/../files/';
+    $nomeArquivo = $_FILES['arquivo']['name'];
+    $arquivo = $pastaUpload . $nomeArquivo;
+    $tmp = $_FILES['arquivo']['tmp_name'];
+    if (move_uploaded_file($tmp, $arquivo)) {
+        echo "<br>Arquivo válido e enviado com sucesso.";
+        $arquivos[] = $nomeArquivo;
+        $_SESSION['arquivos'] = $arquivos;
+    } else {
+        echo "<br>Erro no upload de arquivo!";
+    }
 }
 ?>
 
