@@ -24,4 +24,4 @@ function divisao($a, $b) {
     return $a / $b;
 }
 
-executar(9, 3, '/', divisao);
+executar(9, 3, '/', 'divisao');
