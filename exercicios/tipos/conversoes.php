@@ -29,15 +29,17 @@ var_dump("3" . 2);
 echo '<br>', is_string("3" . 2);
 // echo '<br>', is_string("3" + 2);
 echo '<br>';
-var_dump(1 + "cinco");
+// var_dump(1 + "cinco");  // quebrando o php
 echo '<br>';
 var_dump(1 + "5 cinco");
 echo '<br>';
-var_dump(1 + "cinco 5");
+// var_dump(1 + "cinco 5"); // quebrando o php
 echo '<br>';
 var_dump(1 + "2+5");
 echo '<br>';
 var_dump(1 + "3.2");
+echo '<br>';
+echo sprintf('%0.2f', 1 + "3.2"); //imprimindo apenas 2 casas decimais
 echo '<br>';
 var_dump(1 + "-3.2e2");
 echo '<br>';
