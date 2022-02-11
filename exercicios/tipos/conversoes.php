@@ -29,7 +29,11 @@ var_dump("3" . 2);
 echo '<br>', is_string("3" . 2);
 // echo '<br>', is_string("3" + 2);
 echo '<br>';
-// var_dump(1 + "cinco");  // quebrando o php
+try {
+    var_dump(1 + "cinco");  // quebrando o php
+} catch(Throwable $e) {
+    echo 'Operacao invalida' . $e->getMessage();
+}
 echo '<br>';
 var_dump(1 + "5 cinco");
 echo '<br>';
