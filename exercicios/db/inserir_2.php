@@ -81,7 +81,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-8">
             <label for="nome">Nome</label>
             <input type="text" 
-                class="form-control <?= $erros['nome'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['nome']) ? 'is-invalid' : ''?>"
                 id="nome" name="nome" placeholder="Nome"
                 value="<?= isset($dados['nome']) ? $dados['nome'] : '' ?>">
             <div class="invalid-feedback">
@@ -91,7 +91,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-4">
             <label for="nascimento">Nascimento</label>
             <input type="text"
-                class="form-control <?= $erros['nascimento'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['nascimento']) ? 'is-invalid' : ''?>"
                 id="nascimento" name="nascimento"
                 placeholder="Nascimento"
                 value="<?= isset($dados['nascimento']) ? $dados['nascimento'] : '' ?>">
@@ -104,7 +104,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-6">
             <label for="email">E-mail</label>
             <input type="text"
-                class="form-control <?= $erros['email'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['email']) ? 'is-invalid' : ''?>"
                 id="email" name="email" placeholder="E-mail"
                 value="<?= isset($dados['email']) ? $dados['email'] : '' ?>">
             <div class="invalid-feedback">
@@ -114,7 +114,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-6">
             <label for="site">Site</label>
             <input type="text"
-                class="form-control <?= $erros['site'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['site']) ? 'is-invalid' : ''?>"
                 id="site" name="site" placeholder="Site"
                 value="<?= isset($dados['site']) ? $dados['site'] : '' ?>">
             <div class="invalid-feedback">
@@ -126,7 +126,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-6">
             <label for="filhos">Qtde de Filhos</label>
             <input type="number" 
-                class="form-control <?= $erros['filhos'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['filhos']) ? 'is-invalid' : ''?>"
                 id="filhos" name="filhos"
                 placeholder="Qtde de Filhos"
                 value="<?= isset($dados['filhos']) ? $dados['filhos'] : '' ?>">
@@ -137,7 +137,7 @@ foreach($erros as $erro): ?>
         <div class="form-group col-md-6">
             <label for="salario">Salário</label>
             <input type="text"
-                class="form-control <?= $erros['salario'] ? 'is-invalid' : ''?>"
+                class="form-control <?= isset($erros['salario']) ? 'is-invalid' : ''?>"
                 id="salario" name="salario"
                 placeholder="Salário"
                 value="<?= isset($dados['salario']) ? $dados['salario'] : '' ?>">
